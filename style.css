@@ -238,6 +238,39 @@ body {
   border-color: var(--accent);
 }
 
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.profile-photo-card {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-glow);
+  border-radius: 50%;
+  background: var(--surface);
+  aspect-ratio: 1;
+  box-shadow: 0 24px 60px rgba(0,212,255,0.08);
+}
+
+.profile-photo-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(8,12,20,0.42));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  object-position: center 26%;
+}
+
 /* Info stack */
 .info-stack {
   display: flex;
@@ -443,9 +476,18 @@ body {
 }
 
 .skill-icon {
-  font-size: 2rem;
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--border-glow);
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-family: var(--display);
+  font-size: 1.15rem;
+  line-height: 1;
+  letter-spacing: 0.04em;
   flex-shrink: 0;
-  width: 50px;
   text-align: center;
 }
 
@@ -722,7 +764,10 @@ body {
   display: grid;
   place-items: center;
   border: 1px solid var(--border);
+  font-family: var(--body);
   font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0;
   flex-shrink: 0;
   color: var(--accent);
   transition: border-color 0.2s;
@@ -732,6 +777,7 @@ body {
 
 .cc-body {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 0.15rem;
@@ -748,6 +794,7 @@ body {
   font-size: 0.88rem;
   font-weight: 500;
   color: var(--text);
+  overflow-wrap: anywhere;
 }
 
 .cc-arrow {
@@ -823,6 +870,16 @@ body {
   .nav-status { display: none; }
   .nav-links { gap: 1.5rem; }
   .section { padding: 5rem 1.5rem; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .skill-tile {
+    align-items: flex-start;
+    padding: 1.4rem;
+  }
+  .skill-icon {
+    width: 44px;
+    height: 44px;
+    font-size: 0.95rem;
+  }
   .cert-row { grid-template-columns: 40px 1fr; }
   .cert-meta { display: none; }
 .cursor-glow { display: none; }
